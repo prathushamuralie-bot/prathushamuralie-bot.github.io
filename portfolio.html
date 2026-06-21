@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prathusha Muralie — Portfolio</title>
+<style>
+  :root{
+    --ink:#1c1f26;
+    --paper:#fbfaf8;
+    --line:#e3e1dc;
+    --muted:#6b6f76;
+    --accent:#2f5d50;
+    --accent-soft:#e9f0ed;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Georgia', 'Times New Roman', serif;
+    line-height:1.6;
+  }
+  .util{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    color:var(--muted);
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  header{
+    max-width:880px;
+    margin:0 auto;
+    padding:5rem 1.5rem 3rem;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{margin-bottom:1.2rem;}
+  h1{
+    font-size:2.8rem;
+    font-weight:400;
+    letter-spacing:-0.01em;
+    margin-bottom:0.6rem;
+  }
+  .role{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:1.05rem;
+    color:var(--muted);
+    margin-bottom:1.8rem;
+  }
+  .intro{max-width:560px; font-size:1.05rem; color:#33363d;}
+  .links{margin-top:1.8rem; display:flex; gap:1.6rem; font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.92rem;}
+  section{max-width:880px; margin:0 auto; padding:3.2rem 1.5rem; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-label{margin-bottom:2rem;}
+  h2{font-size:1.6rem; font-weight:400; margin-bottom:0.4rem;}
+  .stack-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem 0.7rem;
+    margin-top:1.4rem;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  .pill{
+    border:1px solid var(--line);
+    padding:0.32rem 0.85rem;
+    border-radius:3px;
+    font-size:0.82rem;
+    color:#454850;
+    background:#fff;
+  }
+  .project{
+    padding:1.8rem 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0.5rem;
+  }
+  .project:first-of-type{border-top:none;}
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:0.4rem;
+  }
+  .project-title{font-size:1.25rem;}
+  .project-tag{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:0.25rem 0.6rem;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .project-desc{color:#46494f; max-width:680px;}
+  .project-link{font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.85rem; margin-top:0.3rem;}
+  .edu-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.3rem;}
+  .edu-school{font-size:1.15rem;}
+  .edu-meta{font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.85rem; color:var(--muted);}
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:3rem 1.5rem 5rem;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    color:var(--muted);
+    font-size:0.85rem;
+  }
+  @media (max-width:600px){
+    h1{font-size:2.1rem;}
+    header{padding:3.5rem 1.2rem 2.2rem;}
+    section{padding:2.4rem 1.2rem;}
+  }
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow util">B.Tech Information Science &amp; Engineering · 2024–2028</div>
+  <h1>Prathusha Muralie</h1>
+  <div class="role">Aspiring AI Engineer — building toward Machine Learning &amp; Applied AI</div>
+  <p class="intro">Engineering student at Women's Engineering College, Lawspet, Puducherry. I build practical projects across mobile apps, computer vision, and data analytics while working through a structured path into AI engineering — currently focused on Python, ML fundamentals, and applied projects.</p>
+  <div class="links">
+    <a href="https://github.com/prathushamuralie-bot" target="_blank">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/prathusha-muralie-15137b372" target="_blank">LinkedIn ↗</a>
+  </div>
+</header>
+
+<section id="stack">
+  <div class="section-label util">Technical Foundation</div>
+  <h2>Stack &amp; Tools</h2>
+  <div class="stack-row">
+    <span class="pill">Python</span>
+    <span class="pill">SQL</span>
+    <span class="pill">C / C++</span>
+    <span class="pill">Pandas / NumPy</span>
+    <span class="pill">Power BI</span>
+    <span class="pill">Streamlit</span>
+    <span class="pill">Flutter / Dart</span>
+    <span class="pill">HTML / CSS</span>
+    <span class="pill">Git &amp; GitHub</span>
+    <span class="pill">OpenCV</span>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label util">Selected Work</div>
+  <h2>Projects</h2>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="project-title">Face Recognition Attendance System</span>
+      <span class="project-tag">Python · Computer Vision</span>
+    </div>
+    <p class="project-desc">A three-stage pipeline — face data collection, model training, and real-time recognition with attendance logged automatically to CSV. Built to replace manual attendance marking with a working biometric flow.</p>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="project-title">Flutter To-Do App</span>
+      <span class="project-tag">Flutter · Mobile</span>
+    </div>
+    <p class="project-desc">A full-featured productivity app with bottom navigation, a Study Tracker, a Profile page with credit points, local persistence, and a celebration animation on task completion. Redesigned with a custom gradient UI.</p>
+    <div class="project-link"><a href="https://github.com/prathushamuralie-bot/flutter-todo-app" target="_blank">View repository ↗</a></div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="project-title">COVID-19 Data Dashboard</span>
+      <span class="project-tag">Python · Data Analysis</span>
+    </div>
+    <p class="project-desc">An interactive dashboard analyzing COVID-19 trends, built with Pandas and Plotly, deployed with Streamlit and shared live via ngrok on Google Colab.</p>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="project-title">Exam Hall Seating Arrangement System</span>
+      <span class="project-tag">Python</span>
+    </div>
+    <p class="project-desc">A system that automates exam seating allocation, removing the manual effort of arranging students across halls while avoiding adjacent same-class seating.</p>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="project-title">StudentXerox</span>
+      <span class="project-tag">Web</span>
+    </div>
+    <p class="project-desc">A student printing and copying services website, including a fully redesigned services page with a premium, clean interface.</p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label util">Background</div>
+  <h2>Education</h2>
+  <div class="edu-row">
+    <span class="edu-school">Women's Engineering College, Lawspet, Puducherry</span>
+    <span class="edu-meta">2024 — 2028</span>
+  </div>
+  <p class="project-desc">B.Tech, Information Science and Engineering</p>
+</section>
+
+<footer>
+  Open to internship opportunities in AI / Machine Learning and Software Engineering. Reach out via LinkedIn or GitHub above.
+</footer>
+
+</body>
+</html>
