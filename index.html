@@ -3,209 +3,386 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prathusha Muralie — Portfolio</title>
+<title>Prathusha Muralie — Software Engineer & AI Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1c1f26;
-    --paper:#fbfaf8;
-    --line:#e3e1dc;
-    --muted:#6b6f76;
-    --accent:#2f5d50;
-    --accent-soft:#e9f0ed;
+    --bg:#0F0E1A;
+    --surface:#1A1830;
+    --surface-2:#221F3D;
+    --violet:#7C5CFC;
+    --teal:#00D9C0;
+    --coral:#FF6B6B;
+    --text:#F5F3FF;
+    --muted:#9D97B8;
+    --border:rgba(255,255,255,0.08);
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Georgia', 'Times New Roman', serif;
-    line-height:1.6;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
   }
-  .util{
-    font-family:'Helvetica Neue', Arial, sans-serif;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    font-size:0.72rem;
-    color:var(--muted);
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{text-decoration:none;color:inherit;}
+
+  /* Background ambient blobs */
+  .blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.35;
+    z-index:0;
+    pointer-events:none;
   }
-  a{color:var(--accent); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  header{
-    max-width:880px;
-    margin:0 auto;
-    padding:5rem 1.5rem 3rem;
-    border-bottom:1px solid var(--line);
+  .blob-1{width:500px;height:500px;background:var(--violet);top:-150px;left:-150px;}
+  .blob-2{width:450px;height:450px;background:var(--teal);bottom:-100px;right:-150px;}
+  .blob-3{width:350px;height:350px;background:var(--coral);top:40%;left:60%;opacity:0.15;}
+
+  .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(15,14,26,0.75);
+    border-bottom:1px solid var(--border);
   }
-  .eyebrow{margin-bottom:1.2rem;}
-  h1{
-    font-size:2.8rem;
-    font-weight:400;
-    letter-spacing:-0.01em;
-    margin-bottom:0.6rem;
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1100px;}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;letter-spacing:-0.5px;}
+  .logo span{color:var(--teal);}
+  .navlinks{display:flex;gap:32px;}
+  .navlinks a{font-size:0.92rem;color:var(--muted);transition:color .2s;}
+  .navlinks a:hover{color:var(--text);}
+
+  /* HERO */
+  .hero{padding:110px 0 90px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono';font-size:0.8rem;color:var(--teal);
+    background:rgba(0,217,192,0.08);border:1px solid rgba(0,217,192,0.25);
+    padding:6px 14px;border-radius:30px;margin-bottom:28px;
   }
-  .role{
-    font-family:'Helvetica Neue', Arial, sans-serif;
-    font-size:1.05rem;
-    color:var(--muted);
-    margin-bottom:1.8rem;
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+  .hero h1{
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    line-height:1.08;
+    font-weight:700;
+    letter-spacing:-1.5px;
+    max-width:800px;
   }
-  .intro{max-width:560px; font-size:1.05rem; color:#33363d;}
-  .links{margin-top:1.8rem; display:flex; gap:1.6rem; font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.92rem;}
-  section{max-width:880px; margin:0 auto; padding:3.2rem 1.5rem; border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  .section-label{margin-bottom:2rem;}
-  h2{font-size:1.6rem; font-weight:400; margin-bottom:0.4rem;}
-  .stack-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:0.5rem 0.7rem;
-    margin-top:1.4rem;
-    font-family:'Helvetica Neue', Arial, sans-serif;
+  .hero h1 .grad{
+    background:linear-gradient(90deg,var(--violet),var(--teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .pill{
-    border:1px solid var(--line);
-    padding:0.32rem 0.85rem;
-    border-radius:3px;
-    font-size:0.82rem;
-    color:#454850;
-    background:#fff;
+  .hero p.sub{
+    margin-top:24px;font-size:1.15rem;color:var(--muted);max-width:560px;line-height:1.6;
   }
-  .project{
-    padding:1.8rem 0;
-    border-top:1px solid var(--line);
-    display:grid;
-    grid-template-columns:1fr;
-    gap:0.5rem;
+  .hero-cta{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:10px;font-weight:600;font-size:0.95rem;
+    transition:transform .2s, box-shadow .2s;
   }
-  .project:first-of-type{border-top:none;}
-  .project-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:0.4rem;
+  .btn-primary{background:linear-gradient(90deg,var(--violet),#9B7CFF);color:#fff;box-shadow:0 8px 24px rgba(124,92,252,0.35);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(124,92,252,0.45);}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+  /* TERMINAL SIGNATURE ELEMENT */
+  .terminal{
+    margin-top:64px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    max-width:640px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+    overflow:hidden;
   }
-  .project-title{font-size:1.25rem;}
-  .project-tag{
-    font-family:'Helvetica Neue', Arial, sans-serif;
-    font-size:0.75rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--accent);
-    background:var(--accent-soft);
-    padding:0.25rem 0.6rem;
-    border-radius:3px;
-    white-space:nowrap;
+  .term-bar{display:flex;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface-2);}
+  .term-bar span{width:11px;height:11px;border-radius:50%;}
+  .term-bar .r{background:#FF6B6B;} .term-bar .y{background:#FFD166;} .term-bar .g{background:#06D6A0;}
+  .term-title{margin-left:10px;font-family:'JetBrains Mono';font-size:0.78rem;color:var(--muted);}
+  .term-body{padding:22px 24px;font-family:'JetBrains Mono';font-size:0.88rem;line-height:1.9;}
+  .term-body .c1{color:var(--teal);}
+  .term-body .c2{color:#FFD166;}
+  .term-body .c3{color:var(--violet);}
+  .term-body .out{color:var(--muted);}
+  .cursor{display:inline-block;width:8px;height:16px;background:var(--teal);animation:blink 1s step-end infinite;vertical-align:middle;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* SECTION HEADERS */
+  .section{padding:90px 0;}
+  .section-head{margin-bottom:48px;}
+  .section-head .tag{font-family:'JetBrains Mono';font-size:0.8rem;color:var(--violet);letter-spacing:1px;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:10px;letter-spacing:-1px;}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .pcard{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:28px;transition:transform .25s, border-color .25s, box-shadow .25s;
+    display:flex;flex-direction:column;height:100%;
   }
-  .project-desc{color:#46494f; max-width:680px;}
-  .project-link{font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.85rem; margin-top:0.3rem;}
-  .edu-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.3rem;}
-  .edu-school{font-size:1.15rem;}
-  .edu-meta{font-family:'Helvetica Neue', Arial, sans-serif; font-size:0.85rem; color:var(--muted);}
-  footer{
-    max-width:880px;
-    margin:0 auto;
-    padding:3rem 1.5rem 5rem;
-    font-family:'Helvetica Neue', Arial, sans-serif;
-    color:var(--muted);
-    font-size:0.85rem;
+  .pcard:hover{transform:translateY(-6px);border-color:rgba(124,92,252,0.4);box-shadow:0 20px 40px -15px rgba(124,92,252,0.25);}
+  .pcard.featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(124,92,252,0.12),rgba(0,217,192,0.08));border-color:rgba(124,92,252,0.3);}
+  .pcard .ptop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+  .pcard .picon{font-size:1.6rem;}
+  .status{font-family:'JetBrains Mono';font-size:0.7rem;padding:4px 10px;border-radius:20px;white-space:nowrap;}
+  .status.live{background:rgba(0,217,192,0.12);color:var(--teal);border:1px solid rgba(0,217,192,0.3);}
+  .status.done{background:rgba(124,92,252,0.12);color:#B9A6FF;border:1px solid rgba(124,92,252,0.3);}
+  .pcard h3{font-size:1.25rem;margin-bottom:10px;}
+  .pcard p.desc{color:var(--muted);font-size:0.94rem;line-height:1.6;flex-grow:1;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .tags span{font-family:'JetBrains Mono';font-size:0.72rem;color:var(--muted);background:var(--surface-2);padding:4px 10px;border-radius:6px;border:1px solid var(--border);}
+  .pcard .plinks{margin-top:20px;display:flex;gap:14px;}
+  .plinks a{font-size:0.85rem;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:4px;}
+  .plinks a:hover{color:var(--coral);}
+
+  /* SKILLS */
+  .skills-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;}
+  .skill-cat h4{font-family:'JetBrains Mono';font-size:0.82rem;color:var(--teal);margin-bottom:16px;letter-spacing:0.5px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    font-size:0.86rem;padding:7px 14px;border-radius:8px;font-weight:500;
+    background:var(--surface-2);border:1px solid var(--border);
   }
-  @media (max-width:600px){
-    h1{font-size:2.1rem;}
-    header{padding:3.5rem 1.2rem 2.2rem;}
-    section{padding:2.4rem 1.2rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start;}
+  .about-grid p{color:var(--muted);line-height:1.8;font-size:1.02rem;margin-bottom:18px;}
+  .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:14px;}
+  .stat-box .num{font-family:'Space Grotesk';font-size:1.8rem;font-weight:700;color:var(--teal);}
+  .stat-box .label{color:var(--muted);font-size:0.85rem;margin-top:4px;}
+
+  /* CONTACT / FOOTER */
+  .contact{
+    text-align:center;padding:100px 0 60px;
   }
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .contact h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-1px;margin-bottom:18px;}
+  .contact p{color:var(--muted);font-size:1.05rem;margin-bottom:36px;}
+  .contact-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  footer{text-align:center;padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:0.85rem;font-family:'JetBrains Mono';}
+
+  @media (max-width:760px){
+    .navlinks{display:none;}
+    .projects-grid{grid-template-columns:1fr;}
+    .pcard.featured{grid-column:auto;}
+    .skills-wrap{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .cursor, .eyebrow .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* Focus visibility */
+  a:focus-visible, .btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="eyebrow util">B.Tech Information Science &amp; Engineering · 2024–2028</div>
-  <h1>Prathusha Muralie</h1>
-  <div class="role">Aspiring AI Engineer — building toward Machine Learning &amp; Applied AI</div>
-  <p class="intro">Engineering student at Women's Engineering College, Lawspet, Puducherry. I build practical projects across mobile apps, computer vision, and data analytics while working through a structured path into AI engineering — currently focused on Python, ML fundamentals, and applied projects.</p>
-  <div class="links">
-    <a href="https://github.com/prathushamuralie-bot" target="_blank">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/prathusha-muralie-15137b372" target="_blank">LinkedIn ↗</a>
-  </div>
-</header>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
-<section id="stack">
-  <div class="section-label util">Technical Foundation</div>
-  <h2>Stack &amp; Tools</h2>
-  <div class="stack-row">
-    <span class="pill">Python</span>
-    <span class="pill">SQL</span>
-    <span class="pill">C / C++</span>
-    <span class="pill">Pandas / NumPy</span>
-    <span class="pill">Power BI</span>
-    <span class="pill">Streamlit</span>
-    <span class="pill">Flutter / Dart</span>
-    <span class="pill">HTML / CSS</span>
-    <span class="pill">Git &amp; GitHub</span>
-    <span class="pill">OpenCV</span>
+<nav>
+  <div class="wrap">
+    <div class="logo">prathusha<span>.dev</span></div>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-ghost" style="padding:9px 18px;font-size:0.85rem;">Get in touch</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Open to internships · AI/ML & SWE</div>
+    <h1>Building things that<br>help people <span class="grad">learn, practice & grow.</span></h1>
+    <p class="sub">I'm Prathusha — a B.Tech ISE student who learns by shipping real projects: AI tools, mobile apps, and dashboards that solve problems I actually run into.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View my work →</a>
+      <a href="https://github.com/prathushamuralie-bot" class="btn btn-ghost" target="_blank">GitHub</a>
+    </div>
+
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="r"></span><span class="y"></span><span class="g"></span>
+        <span class="term-title">jee@portfolio — building</span>
+      </div>
+      <div class="term-body">
+        <div><span class="c1">$</span> whoami</div>
+        <div class="out">B.Tech ISE student · CGPA 9.0 · Puducherry</div>
+        <div style="margin-top:10px;"><span class="c1">$</span> currently_building</div>
+        <div class="out">→ <span class="c3">InterviewEnglish AI</span> — AI interview-prep coach</div>
+        <div class="out">→ Solving DSA daily · prepping for SWE internships</div>
+        <div style="margin-top:10px;"><span class="c1">$</span> next<span class="cursor"></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="section-label util">Selected Work</div>
-  <h2>Projects</h2>
-
-  <div class="project">
-    <div class="project-head">
-      <span class="project-title">Face Recognition Attendance System</span>
-      <span class="project-tag">Python · Computer Vision</span>
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">// 01 — selected work</div>
+      <h2>Projects I've shipped</h2>
     </div>
-    <p class="project-desc">A three-stage pipeline — face data collection, model training, and real-time recognition with attendance logged automatically to CSV. Built to replace manual attendance marking with a working biometric flow.</p>
-  </div>
 
-  <div class="project">
-    <div class="project-head">
-      <span class="project-title">Flutter To-Do App</span>
-      <span class="project-tag">Flutter · Mobile</span>
-    </div>
-    <p class="project-desc">A full-featured productivity app with bottom navigation, a Study Tracker, a Profile page with credit points, local persistence, and a celebration animation on task completion. Redesigned with a custom gradient UI.</p>
-    <div class="project-link"><a href="https://github.com/prathushamuralie-bot/flutter-todo-app" target="_blank">View repository ↗</a></div>
-  </div>
+    <div class="projects-grid">
 
-  <div class="project">
-    <div class="project-head">
-      <span class="project-title">COVID-19 Data Dashboard</span>
-      <span class="project-tag">Python · Data Analysis</span>
-    </div>
-    <p class="project-desc">An interactive dashboard analyzing COVID-19 trends, built with Pandas and Plotly, deployed with Streamlit and shared live via ngrok on Google Colab.</p>
-  </div>
+      <div class="pcard featured">
+        <div class="ptop">
+          <div class="picon">🎯</div>
+          <span class="status live">● live</span>
+        </div>
+        <h3>InterviewEnglish AI</h3>
+        <p class="desc">A multi-feature AI web app that helps engineering students practice spoken & written English for job interviews — self-introductions, mock interview chat, grammar checks, daily conversation practice, and progress tracking, powered by Google's Gemini API.</p>
+        <div class="tags">
+          <span>Python</span><span>Streamlit</span><span>Gemini API</span><span>Prompt Engineering</span>
+        </div>
+        <div class="plinks">
+          <a href="https://interview-english-ai-yb3sdvslhs5tic2kzf4x28.streamlit.app" target="_blank">Live demo →</a>
+          <a href="https://github.com/prathushamuralie-bot/interview-english-ai" target="_blank">Source code →</a>
+        </div>
+      </div>
 
-  <div class="project">
-    <div class="project-head">
-      <span class="project-title">Exam Hall Seating Arrangement System</span>
-      <span class="project-tag">Python</span>
-    </div>
-    <p class="project-desc">A system that automates exam seating allocation, removing the manual effort of arranging students across halls while avoiding adjacent same-class seating.</p>
-  </div>
+      <div class="pcard">
+        <div class="ptop">
+          <div class="picon">📋</div>
+          <span class="status done">✓ built</span>
+        </div>
+        <h3>Flutter To-Do & Study Tracker</h3>
+        <p class="desc">A full-featured productivity app with a countdown study timer, persistent task storage, profile section, and a celebration animation when tasks are completed.</p>
+        <div class="tags"><span>Flutter</span><span>Dart</span><span>SharedPreferences</span></div>
+        <div class="plinks"><a href="https://github.com/prathushamuralie-bot" target="_blank">Source code →</a></div>
+      </div>
 
-  <div class="project">
-    <div class="project-head">
-      <span class="project-title">StudentXerox</span>
-      <span class="project-tag">Web</span>
+      <div class="pcard">
+        <div class="ptop">
+          <div class="picon">😷</div>
+          <span class="status done">✓ built</span>
+        </div>
+        <h3>COVID-19 Data Dashboard</h3>
+        <p class="desc">An interactive dashboard analyzing COVID-19 trends with dynamic charts, built and deployed using Streamlit on top of a cleaned real-world dataset.</p>
+        <div class="tags"><span>Python</span><span>Pandas</span><span>Plotly</span><span>Streamlit</span></div>
+        <div class="plinks"><a href="https://github.com/prathushamuralie-bot" target="_blank">Source code →</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ptop">
+          <div class="picon">🧑‍🤝‍🧑</div>
+          <span class="status done">✓ built</span>
+        </div>
+        <h3>Face Recognition Attendance System</h3>
+        <p class="desc">An automated attendance system that identifies students via facial recognition, replacing manual roll calls with a faster, contactless process.</p>
+        <div class="tags"><span>Python</span><span>OpenCV</span><span>Face Recognition</span></div>
+        <div class="plinks"><a href="https://github.com/prathushamuralie-bot" target="_blank">Source code →</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ptop">
+          <div class="picon">🪑</div>
+          <span class="status done">✓ built</span>
+        </div>
+        <h3>Exam Hall Seating System</h3>
+        <p class="desc">A tool to automatically generate fair, randomized exam seating arrangements for large student batches, reducing manual planning errors.</p>
+        <div class="tags"><span>Python</span><span>Logic Design</span></div>
+        <div class="plinks"><a href="https://github.com/prathushamuralie-bot" target="_blank">Source code →</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ptop">
+          <div class="picon">🖨️</div>
+          <span class="status done">✓ built</span>
+        </div>
+        <h3>StudentXerox</h3>
+        <p class="desc">A website concept for a student printing & copying service — clean service pages designed to make ordering prints on campus simple.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>UI Design</span></div>
+        <div class="plinks"><a href="https://github.com/prathushamuralie-bot" target="_blank">Source code →</a></div>
+      </div>
+
     </div>
-    <p class="project-desc">A student printing and copying services website, including a fully redesigned services page with a premium, clean interface.</p>
   </div>
 </section>
 
-<section id="education">
-  <div class="section-label util">Background</div>
-  <h2>Education</h2>
-  <div class="edu-row">
-    <span class="edu-school">Women's Engineering College, Lawspet, Puducherry</span>
-    <span class="edu-meta">2024 — 2028</span>
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">// 02 — toolkit</div>
+      <h2>What I build with</h2>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-cat">
+        <h4>LANGUAGES</h4>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">C / C++</span><span class="chip">Dart</span><span class="chip">SQL</span><span class="chip">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>AI & DATA</h4>
+        <div class="chip-row">
+          <span class="chip">Gemini API</span><span class="chip">Pandas</span><span class="chip">Plotly</span><span class="chip">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>TOOLS & PLATFORMS</h4>
+        <div class="chip-row">
+          <span class="chip">Flutter</span><span class="chip">Streamlit</span><span class="chip">Git & GitHub</span><span class="chip">VS Code</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="project-desc">B.Tech, Information Science and Engineering</p>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">// 03 — about</div>
+      <h2>A bit about me</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="stat-box"><div class="num">9.0</div><div class="label">CGPA · B.Tech ISE</div></div>
+        <div class="stat-box"><div class="num">6+</div><div class="label">Projects shipped</div></div>
+        <div class="stat-box"><div class="num">2028</div><div class="label">Expected graduation</div></div>
+      </div>
+      <div>
+        <p>I'm a first-year B.Tech Information Science & Engineering student at Women's Engineering College, Puducherry, affiliated with Puducherry Technological University.</p>
+        <p>I learn best by building — most of what I know about Flutter, Git, and Python came from shipping real, working projects rather than just following tutorials. That habit led me to build an AI-powered interview prep tool from scratch: planning it, debugging it through deployment, and putting it live for other students to use.</p>
+        <p>Right now, I'm preparing for software engineering internships — practicing DSA daily, studying system design fundamentals, and aiming for roles at companies like Google.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's build something together.</h2>
+    <p>Open to internships, collaborations, and good conversations about AI.</p>
+    <div class="contact-links">
+      <a href="mailto:prathusha524@gmail.com" class="btn btn-primary">✉ Email me</a>
+      <a href="https://linkedin.com/in/prathusha-muralie-15137b372" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/prathushamuralie-bot" target="_blank" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
 </section>
 
 <footer>
-  Open to internship opportunities in AI / Machine Learning and Software Engineering. Reach out via LinkedIn or GitHub above.
+  © 2026 Prathusha Muralie · Built with HTML, CSS & curiosity
 </footer>
 
 </body>
